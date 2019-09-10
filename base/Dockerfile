@@ -24,7 +24,12 @@ RUN pacman -Sy \
   gtk3 \
   cmake \
   go \
-  python
+  python \
+  libffi \
+  libx11 \
+  libxcb \
+  meson \
+  ninja
 
 WORKDIR /tmp
 
@@ -45,14 +50,11 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 # compile libui library (needed due to https://github.com/andlabs/ui/issues/230)
-RUN git clone https://github.com/andlabs/libui.git \
-  && cd libui/ \
-  && mkdir build \
-  && cd build/ \
-  && cmake -DBUILD_SHARED_LIBS=OFF .. \
-  && make \
-  && cp out/libui.a /tmp/libui_linux_amd64.a \
+RUN sudo -u nobody git clone https://aur.archlinux.org/libui-git.git \
+  && cd libui-git \
+  && sudo -u nobody makepkg --noconfirm -s \
+  && pacman -U --noconfirm libui-git*.pkg.tar.xz \
   && cd .. \
-  && rm -Rf libui
+  && rm -Rf libui-git
 
 WORKDIR $GOPATH
