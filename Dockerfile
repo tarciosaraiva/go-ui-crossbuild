@@ -1,4 +1,4 @@
-FROM tarciosaraiva/go-ui-x-build-base
+FROM tarciosaraiva/go-ui-xbuild-base
 
 WORKDIR /go/src
 COPY gouicrossbuild.sh /bin/gouicrossbuild
