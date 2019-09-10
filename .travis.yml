@@ -1,8 +1,8 @@
 services:
 - docker
 script:
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker build -t tarciosaraiva/go-ui-xbuild-base base
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker push tarciosaraiva/go-ui-xbuild-base
 - docker build -t tarciosaraiva/go-ui-xbuild .
 - docker push tarciosaraiva/go-ui-xbuild
