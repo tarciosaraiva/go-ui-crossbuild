@@ -1,9 +1,12 @@
 FROM magj/go-ui-crossbuild-base
+
 WORKDIR /go/src
 COPY gouicrossbuild.sh /bin/gouicrossbuild
+
 RUN ln /bin/gouicrossbuild /bin/gocrossbuild
 RUN chmod +x /bin/gouicrossbuild
 RUN chmod +x /bin/gocrossbuild
+
 CMD printf 'Cross compiler executable image intended for use with the andlabs/ui go library\n\
 Builds binaries for amd64 linux/windows/darwin platforms\n\n\
 usage: Mount your project in to the image $GOPATH source directory(/go/src).\n\

@@ -1,8 +1,10 @@
 FROM archlinux/base
+
 # Add mingw binary distribution repository
 RUN printf  "[ownstuff]\n\
 SigLevel = Optional TrustAll\n\
 Server = http://martchus.no-ip.biz/repo/arch/\$repo/os/\$arch" >> /etc/pacman.conf
+
 # install dependencies
 RUN pacman -Sy \
   && pacman -S --noconfirm \
