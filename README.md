@@ -1,8 +1,8 @@
+[![Build Status](https://travis-ci.org/tarciosaraiva/go-ui-crossbuild.svg?branch=master)](https://travis-ci.org/tarciosaraiva/go-ui-crossbuild)
+
 # go-ui-crossbuild
 
 > Cross compiler for use with the [go ui library](https://github.com/andlabs/ui). Builds amd64 binaries for linux, windows and macOS(darwin)
-
-[![Build Status](https://travis-ci.org/tarciosaraiva/go-ui-crossbuild.svg?branch=master)](https://travis-ci.org/tarciosaraiva/go-ui-crossbuild)
 
 ## Usage
 
